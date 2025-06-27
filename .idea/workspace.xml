@@ -21,7 +21,9 @@
     <option name="reloaded" value="true" />
   </component>
   <component name="CMakeRunConfigurationManager">
-    <generated />
+    <generated>
+      <config projectName="cppclient" targetName="cppclient" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -30,7 +32,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc784ea3-4577-4ee5-9491-ca200c4bc113" name="Changes" comment="initial testing" />
+    <list default="true" id="dc784ea3-4577-4ee5-9491-ca200c4bc113" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/cppclient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cppclient.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,18 +48,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Nul-led"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Nul-led/cppclient.git",
-    "accountId": "34508a2e-af75-4818-8255-9d7f6bf1ede1"
-  }
-}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -86,7 +79,7 @@
     "RunOnceActivity.west.config.association.type.startup.service": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Nulled/Documents/cppclient",
     "node.js.detected.package.eslint": "true",
@@ -105,7 +98,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="cppclient" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cppclient" TARGET_NAME="cppclient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cppclient" RUN_TARGET_NAME="cppclient">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -131,17 +124,9 @@
       <workItem from="1750856275346" duration="1609000" />
       <workItem from="1750857996331" duration="2000" />
       <workItem from="1750858201970" duration="9557000" />
-      <workItem from="1751043168078" duration="6908000" />
+      <workItem from="1751043168078" duration="6544000" />
+      <workItem from="1751066950066" duration="2000" />
     </task>
-    <task id="LOCAL-00001" summary="initial testing">
-      <option name="closed" value="true" />
-      <created>1751066712270</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1751066712270</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,10 +162,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial testing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

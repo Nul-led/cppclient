@@ -39,3 +39,6 @@
 
 # debug information files
 *.dwo
+
+cppclient.js
+cppclient.wasm
