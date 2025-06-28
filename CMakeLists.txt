@@ -29,6 +29,7 @@ set(SOURCES_MODULES
         src/net/Writer.ixx
         src/rendering/Canvas.ixx
         src/ui/UI.ixx
+        src/rendering/Image.ixx
 )
 
 ### todo remove
@@ -67,7 +68,6 @@ set(COMMON_COMPILER_OPTIONS
         -sEXPORT_ES6=1
         -sEXPORTED_FUNCTIONS=_main
         -sEXPORTED_RUNTIME_FUNCTIONS=cwrap
-        -DCLAY_WASM
         -Wno-deprecated
 )
 

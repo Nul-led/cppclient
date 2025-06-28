@@ -14,7 +14,7 @@ struct UI {
         for (int i = 0; i < commands.length; ++i) {
             switch (const auto *command = &commands.internalArray[i]; command->commandType) {
                 case CLAY_RENDER_COMMAND_TYPE_RECTANGLE: {
-
+                    Clay_RenderCommand::
                 }
                 default: ;
             }
@@ -25,7 +25,8 @@ struct UI {
 
     }
 
-    void border() {
+    void border(Clay_BorderRenderData data) {
+
 
     }
 
@@ -38,6 +39,14 @@ struct UI {
     }
 
     void scissorStart(const double x, const double y, const double width, const double height) const {
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(x, y, width, height);
+        ctx.clip();
+        ctx.closePath();
+    }
 
+    void scissorEnd() const {
+        ctx.restore();
     }
 };

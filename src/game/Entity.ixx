@@ -50,7 +50,7 @@ export enum class EntityFlags : uint8_t {
     IsInvulnerable          = 1 << 3, // render the invulnerability filter flash on the entity
     IsAboveParent           = 1 << 4, // render above parent instead of below, overrides Z coordinate
     IsOnMinimap             = 1 << 5, // render entity to the minimap
-    DoShapeRotation         = 1 << 6, // simulates passive shape rotation on the client, also sets random start rotation when this is toggled during spawntick
+    DoShapeRotation         = 1 << 6, // simulates passive shape rotation on the client, also sets random start rotation when this is toggled during spawn tick
 };
 
 inline uint8_t operator&(const uint8_t lhs, const EntityNetProps rhs) {
@@ -116,10 +116,10 @@ export struct Entity {
         if (state & EntityNetProps::RotationOffset) rotationOffset.decode(reader);
     }
 
-    uint64_t absolutesCachedFrame;
-    float absoluteX;
-    float absoluteY;
-    float absoluteRotation;
+    uint64_t absolutesCachedFrame = 0;
+    float absoluteX = 0.0f;
+    float absoluteY = 0.0f;
+    float absoluteRotation = 0.0f;
 
     [[nodiscard]] float getAnimationOffset(const double now) const {
         if (bbType.getRenderValue() != 2) return 0.0f;
