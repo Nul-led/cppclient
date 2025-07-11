@@ -2,7 +2,7 @@ module;
 
 #include <cstdint>
 #include <map>
-#include <math.h>
+#include <cmath>
 #include <ranges>
 #include <string>
 
@@ -12,36 +12,14 @@ import Arena;
 import Camera;
 import Entity;
 import Reader;
-import Viewport;
-
-
 
 export struct World {
-    static World *Remote() {
-        static World REMOTE_WORLD{};
-        return &REMOTE_WORLD;
-    }
-
     uint64_t tick = 0;
-
     Arena arena{};
     Camera camera{};
-
-    std::map<uint32_t, Entity> entities{};
-
-    uint32_t entityDeletionsCount = 0;
-    uint32_t entityUpdatesCount = 0;
-    uint32_t serverEntitiesCount = 0;
+    std::map<uint16_t, Entity> entities{};
 
     explicit World() = default;
-
-    void decode(Reader &reader) {
-
-
-        // For example, this is where you might set these counters:
-        // this->entityUpdatesCount = ...
-        // this->entityDeletionsCount = ...
-    }
 
     // Creates an entity with the next available ID.
     Entity& createEntity() {
@@ -49,13 +27,13 @@ export struct World {
             throw std::runtime_error("Cannot create new entity: maximum number of entities reached.");
         }
 
-        uint32_t entityId = 0;
+        uint16_t entityId = 0;
         while (entities.contains(entityId)) ++entityId;
         return createEntityAt(entityId);
     }
 
     // Creates an entity with a specific ID.
-    Entity& createEntityAt(uint32_t id) {
+    Entity& createEntityAt(uint16_t id) {
         if (entities.contains(id)) {
             throw std::runtime_error("Entity with ID " + std::to_string(id) + " already exists.");
         }
@@ -64,12 +42,12 @@ export struct World {
     }
 
     // Gets an entity by its ID.
-    Entity& getEntity(const uint32_t id) {
+    Entity& getEntity(const uint16_t id) {
         return entities.at(id);
     }
 
     // Gets or creates an entity at ID.
-    Entity& getOrCreateEntity(const uint32_t id) {
+    Entity& getOrCreateEntity(const uint16_t id) {
         if (containsEntity(id)) {
             return getEntity(id);
         }
@@ -77,13 +55,13 @@ export struct World {
     }
 
     // Returns the state of existence of an entity by its ID.
-    [[nodiscard]] bool containsEntity(const uint32_t id) const {
+    [[nodiscard]] bool containsEntity(const uint16_t id) const {
         return entities.contains(id);
     }
 
     // Deletes an entity by its ID.
     // Returns true if the entity was found and deleted, false otherwise.
-    bool deleteEntity(const uint32_t id) {
+    bool deleteEntity(const uint16_t id) {
         return entities.erase(id) > 0;
     }
 
@@ -93,23 +71,8 @@ export struct World {
     }
 
     // Returns the current number of entities in the world.
-    [[nodiscard]] uint32_t getEntityCount() const {
-        return static_cast<uint32_t>(entities.size());
-    }
-
-    // Returns the number of entities in the server's world if available.
-    [[nodiscard]] uint32_t getServerEntityCount() const {
-        return serverEntitiesCount;
-    }
-
-    // Returns the number of entity updates from the last decode.
-    [[nodiscard]] uint32_t getEntityUpdatesCount() const {
-        return entityUpdatesCount;
-    }
-
-    // Returns the number of entity deletions from the last decode.
-    [[nodiscard]] uint32_t getEntityDeletionsCount() const {
-        return entityDeletionsCount;
+    [[nodiscard]] uint16_t getEntityCount() const {
+        return static_cast<uint16_t>(entities.size());
     }
 
     // Returns the current tick
@@ -124,7 +87,7 @@ export struct World {
     }
 
     void calculateEntityAbsolutes(Entity& entity) {
-        if (entity.absolutesCachedFrame == Viewport::frameCount) return;
+        /*if (entity.absolutesCachedFrame == Viewport::frameCount) return;
         float offsetX = 0.0f, offsetY = 0.0f, offsetRotation = 0.0f, offsetRotationSin, offsetRotationCos;
         if (const uint32_t parentId = entity.parent.getRenderValue()) {
             auto &parent = getEntity(parentId);
@@ -137,11 +100,7 @@ export struct World {
 
         float x = 0.0f, rotation = 0.0f;
         if (entity.animationDuration.getRenderValue() > 0) {
-            if (entity.flags.getRenderValue() & static_cast<uint8_t>(EntityFlags::IsAnimationYAxis)) {
-                y += entity.getAnimationOffset(Viewport::renderTime);
-            } else {
-                x += entity.getAnimationOffset(Viewport::renderTime);
-            }
+            x += entity.getAnimationOffset(Viewport::renderTime);
         }
 
         entity.absoluteX =
@@ -161,6 +120,6 @@ export struct World {
         else entity.absolutes.angle = entity.angle.value;
 
         entity.absolutes.frame = this.frameCount;
-
+        */
     }
 };

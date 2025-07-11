@@ -6,8 +6,8 @@ module;
 export module NetProp;
 
 import Interpolation;
-import Viewport;
 import Reader;
+import Viewport;
 
 export enum class StringFormat {
     Short,

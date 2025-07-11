@@ -7,32 +7,33 @@ export module Viewport;
 
 import Canvas;
 
-export struct Viewport {
-    static inline uint32_t screenWidth = 1920;
-    static inline uint32_t screenHeight = 1080;
-    static inline double devicePixelRatio = 1.0f;
-    static inline uint64_t frameCount = 0;
+export namespace Viewport {
+    uint32_t screenWidth = 1920;
+    uint32_t screenHeight = 1080;
 
-    static inline double deltaTime = 1000.0f / 60.0f;
-    static inline double now = 0.0f;
-    static inline double renderTime = 0.0f;
+    uint64_t frameCount = 0;
+    double deltaTime = 1000.0f / 60.0f;
+    double now = 0.0f;
+    double renderTime = 0.0f;
 
-    static inline Canvas2d* canvas;
-    static inline Context2d* ctx;
+    Canvas2d* canvas;
+    Context2d* ctx;
 
-    static void init() {
+    void init() {
         canvas = new Canvas2d(Canvas2d::getSurface("canvas"));
         ctx = new Context2d(*canvas);
     }
 
-    // mspt and latency are to be smoothed, latency is one-way latency not rtt
-    static void frame(const double now, const double mspt, const double latency) {
-        deltaTime = now - Viewport::now;
-        renderTime = now - (mspt / 2.0f + latency);
-        Viewport::now = now;
+    void updateTime(const double time, const double mspt, const double latency) {
+        deltaTime = time - now;
+        renderTime = time - (mspt / 2.0f + latency);
+        now = time;
+    }
 
-        devicePixelRatio = emscripten::val::global("devicePixelRatio").as<double>();
+    void updateScreen() {
         screenWidth = emscripten::val::global("innerWidth").as<int>() ;
         screenHeight = emscripten::val::global("innerHeight").as<int>();
+        canvas->setSize(screenWidth, screenHeight);
+        canvas->setStyleSize(screenWidth, screenHeight);
     }
-};
+}

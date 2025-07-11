@@ -10,6 +10,7 @@ export module Clientbound;
 
 import Reader;
 import World;
+import GameServer;
 
 export enum class ClientboundHeaders : uint8_t {
     Pong = 0,
@@ -30,15 +31,6 @@ export enum class ClientboundHeaders : uint8_t {
     Commands,
 };
 
-
-
-
-extern "C" {
-    void handlePongMessage() {
-
-    }
-}
-
 export void decodeMessages(Reader &reader) {
     while (reader.bytesLeft()) {
         switch (reader.trivial<uint8_t>()) {
@@ -47,23 +39,26 @@ export void decodeMessages(Reader &reader) {
             case static_cast<uint8_t>(ClientboundHeaders::Init):
                 break;
             case static_cast<uint8_t>(ClientboundHeaders::Entities): {
+                assert(GameServer::connected);
                 const auto deletionCounts = reader.uleb128<uint32_t>();
                 for (uint32_t i = 0; i < deletionCounts; ++i) {
-                    if (const auto id = reader.uleb128<uint32_t>(); !World::Remote()->deleteEntity(id)) {
+                    if (const auto id = reader.uleb128<uint32_t>(); !GameServer::world.deleteEntity(id)) {
                         std::cout << "Tried to delete entity " << id << " that we don't know about" << std::endl;
                     }
                 }
                 const auto updateCount = reader.uleb128<uint32_t>();
                 for (uint32_t i = 0; i < updateCount; ++i) {
-                    World::Remote()->getOrCreateEntity(reader.uleb128<uint32_t>())->decode(reader);
+                    GameServer::world.getOrCreateEntity(reader.uleb128<uint32_t>()).decode(reader);
                 }
                 break;
             }
             case static_cast<uint8_t>(ClientboundHeaders::Arena):
-                World::Remote()->arena.decode(reader);
+                assert(GameServer::connected);
+                GameServer::world.arena.decode(reader);
                 break;
             case static_cast<uint8_t>(ClientboundHeaders::Camera):
-                //World::Remote()->camera.decode(reader);
+                assert(GameServer::connected);
+                //GameServer::world.camera.decode(reader);
                 break;
         }
     }

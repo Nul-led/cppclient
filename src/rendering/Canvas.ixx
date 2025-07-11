@@ -15,6 +15,10 @@ export struct Canvas2d {
         return emscripten::val::global("document").call<emscripten::val>("getElementById", canvasId);
     }
 
+    static emscripten::val getOffScreenSurface(const uint32_t initialWidth, const uint32_t initialHeight) {
+        return emscripten::val::global("OffscreenCanvas").new_(emscripten::val(initialWidth), emscripten::val(initialHeight));
+    }
+
     static emscripten::val getSurface(const emscripten::val &context) {
         return context["canvas"];
     }
@@ -33,6 +37,11 @@ export struct Canvas2d {
         surface.set("width", width);
         surface.set("height", height);
     }
+
+    void setStyleSize(const uint32_t width, const uint32_t height) const {
+        surface["style"].set("width", width);
+        surface["style"].set("height", height);
+    }
 };
 
 export struct Context2d {
@@ -40,16 +49,6 @@ export struct Context2d {
     const Canvas2d &canvas;
 
     explicit Context2d(const Canvas2d &canvas) : ctx(canvas.surface.call<emscripten::val>("getContext", emscripten::val("2d"))), canvas(canvas) {}
-
-    // todo methods: arc, arcTo, bezierCurveTo, clearRect, clip, createConicGradient, createImageData, createLinearGradient
-    // createPattern, createRadialGradient, drawFocusIfNeeded, drawImage, ellipse, fill, fillRect, fillText,
-    // getContextAttributes, getImageData, getLineDash, getTransform, isContextLost, isPointInPath, isPointInStroke,
-    // lineTo, measureText, moveTo, putImageData, quadraticCurveTo, reset, resetTransform, restore, rotate, roundRect,
-    // save, setLineDash, setTransform, stroke, strokeRect, strokeText, transform, translate
-    // todo accessors: direction, fillStyle, filter, font, font, globalAlpha, globalCompositeOperation,
-    // imageSmoothingEnabled, imageSmoothingQuality, letterSpacing, lineCap, lineDashOffset, lineJoin,
-    // lineWidth, miterLimit, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, strokeStyle, textAlign, textBaseline,
-    // wordSpacing
 
     void arc(const double x, const double y, const double radius, const double startAngle, const double endAngle, const bool counterclockwise = false) const {
         EM_ASM(({
@@ -328,16 +327,10 @@ export struct Context2d {
         }), ctx.as_handle(), x, y, w, h, radius);
     }
 
-    void roundRect(const double x, const double y, const double w, const double h, const std::vector<double>& radii) const {
+    void roundRect(const double x, const double y, const double w, const double h, const double topLeft, const double topRight, const double bottomLeft, const double bottomRight) const {
         EM_ASM_({
-            const radii_ptr = $5;
-            const radii_size = $6;
-            const js_array = [];
-            for (let i = 0; i < radii_size; i++) {
-                js_array.push(HEAPF64[(radii_ptr>>3) + i]);
-            }
-            Emval.toValue($0).roundRect($1, $2, $3, $4, js_array);
-        }, ctx.as_handle(), x, y, w, h, radii.data(), radii.size());
+            Emval.toValue($0).roundRect($1, $2, $3, $4, [$5, $6, $7, $8]);
+        }, ctx.as_handle(), x, y, w, h, topLeft, topRight, bottomLeft, bottomRight);
     }
 
     void save() const {
@@ -412,6 +405,7 @@ export struct Context2d {
     [[nodiscard]] std::string getFillStyleStr() const { return getStringProperty("fillStyle"); }
     void setFillStyle(const std::string& value) const { EM_ASM(({ Emval.toValue($0).fillStyle = UTF8ToString($1); }), ctx.as_handle(), value.c_str()); }
     void setFillStyle(const emscripten::val& value) const { EM_ASM(({ Emval.toValue($0).fillStyle = Emval.toValue($1); }), ctx.as_handle(), value.as_handle()); }
+    void setFillColor(const float r, const float g, const float b, const float a) const { EM_ASM(({ Emval.toValue($0).fillStyle = "rgba(" + $1 + "," + $2 + "," + $3 + "," + $4 + ")"; }), ctx.as_handle(), r, g, b, a); }
 
     [[nodiscard]] std::string getFilter() const { return getStringProperty("filter"); }
     void setFilter(const std::string& value) const { EM_ASM(({ Emval.toValue($0).filter = UTF8ToString($1); }), ctx.as_handle(), value.c_str()); }
@@ -464,6 +458,7 @@ export struct Context2d {
     [[nodiscard]] std::string getStrokeStyleStr() const { return getStringProperty("strokeStyle"); }
     void setStrokeStyle(const std::string& value) const { EM_ASM(({ Emval.toValue($0).strokeStyle = UTF8ToString($1); }), ctx.as_handle(), value.c_str()); }
     void setStrokeStyle(const emscripten::val& value) const { EM_ASM(({ Emval.toValue($0).strokeStyle = Emval.toValue($1); }), ctx.as_handle(), value.as_handle()); }
+    void setStrokeColor(const float r, const float g, const float b, const float a) const { EM_ASM(({ Emval.toValue($0).strokeStyle = "rgba(" + $1 + "," + $2 + "," + $3 + "," + $4 + ")"; }), ctx.as_handle(), r, g, b, a); }
 
     [[nodiscard]] std::string getTextAlign() const { return getStringProperty("textAlign"); }
     void setTextAlign(const std::string& value) const { EM_ASM(({ Emval.toValue($0).textAlign = UTF8ToString($1); }), ctx.as_handle(), value.c_str()); }

@@ -13,7 +13,7 @@ struct Writer {
         }
     }
 
-    void bytes(const void *data, size_t size) {
+    void bytes(const void *data, const size_t size) {
         const auto* byte_data = static_cast<const uint8_t*>(data);
         buffer.insert(buffer.end(), byte_data, byte_data + size);
     }

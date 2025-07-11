@@ -11,7 +11,6 @@ import Reader;
 import Color;
 import Interpolation;
 import Canvas;
-import Viewport;
 
 enum class EntityNetProps : uint64_t {
     // byte 1
@@ -131,6 +130,6 @@ export struct Entity {
         const auto scale = bbSide2.getRenderValue();
         const auto msPassed = static_cast<float>(msDuration / (now - animationDuration.currentTimeStamp));
         const auto state = std::ranges::clamp(msPassed, 0.0f, 1.0f);
-        return (MAX_ANIMATION_UNSCALED * (scale / UNIT_SCALE)) * state;
+        return static_cast<float>(MAX_ANIMATION_UNSCALED * (scale / UNIT_SCALE)) * state;
     }
 };

@@ -32,11 +32,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc784ea3-4577-4ee5-9491-ca200c4bc113" name="Changes" comment="initial testing">
-      <change afterPath="$PROJECT_DIR$/src/rendering/Image.ixx" afterDir="false" />
+    <list default="true" id="dc784ea3-4577-4ee5-9491-ca200c4bc113" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/src/core/GameServer.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/Inputs.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/rendering/GameRendering.ixx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Viewport.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Viewport.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/World.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/World.ixx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Entity.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Entity.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/Clientbound.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/Clientbound.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/NetProp.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/NetProp.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/Writer.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/Writer.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rendering/Canvas.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/rendering/Canvas.ixx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/UI.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/UI.ixx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +113,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Nulled/Documents/cppclient/main.cpp&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;discord-project&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -114,6 +123,11 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="cppclient" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cppclient" TARGET_NAME="cppclient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cppclient" RUN_TARGET_NAME="cppclient">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -143,6 +157,30 @@
       <workItem from="1751043168078" duration="6544000" />
       <workItem from="1751066950066" duration="150000" />
       <workItem from="1751067174406" duration="2954000" />
+      <workItem from="1751070661979" duration="50000" />
+      <workItem from="1751109088583" duration="1331000" />
+      <workItem from="1751549855686" duration="163000" />
+      <workItem from="1751550037039" duration="8748000" />
+      <workItem from="1751567218292" duration="3000" />
+      <workItem from="1751580794059" duration="70000" />
+      <workItem from="1751668179440" duration="1000" />
+      <workItem from="1751725694077" duration="1000" />
+      <workItem from="1751736709070" duration="6763000" />
+      <workItem from="1751813745692" duration="3000" />
+      <workItem from="1751815009273" duration="3000" />
+      <workItem from="1751846128814" duration="1000" />
+      <workItem from="1751848553095" duration="1000" />
+      <workItem from="1751852293674" duration="2000" />
+      <workItem from="1751852786993" duration="2000" />
+      <workItem from="1751887181813" duration="2471000" />
+      <workItem from="1752085261017" duration="74000" />
+      <workItem from="1752085344920" duration="60000" />
+      <workItem from="1752085417481" duration="251000" />
+      <workItem from="1752085682896" duration="1267000" />
+      <workItem from="1752148545086" duration="35000" />
+      <workItem from="1752148617353" duration="9913000" />
+      <workItem from="1752183000874" duration="9040000" />
+      <workItem from="1752242699256" duration="3908000" />
     </task>
     <task id="LOCAL-00001" summary="initial testing">
       <option name="closed" value="true" />
@@ -152,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751067038326</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit">
+      <option name="closed" value="true" />
+      <created>1751070709108</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1751070709108</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +237,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial testing" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/core/Viewport.ixx</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -20,6 +20,7 @@ set(SOURCES_MODULES
         src/game/Camera.ixx
         src/game/Tank.ixx
         src/game/Entity.ixx
+        src/core/GameServer.ixx
         src/net/Clientbound.ixx
         src/game/Scoreboard.ixx
         src/game/Attributes.ixx
@@ -30,6 +31,8 @@ set(SOURCES_MODULES
         src/rendering/Canvas.ixx
         src/ui/UI.ixx
         src/rendering/Image.ixx
+        src/rendering/GameRendering.ixx
+        src/core/Inputs.ixx
 )
 
 ### todo remove
