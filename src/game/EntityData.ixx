@@ -4,13 +4,14 @@ module;
 #include <cstdint>
 #include <cmath>
 
-export module Entity;
+export module EntityData;
 
 import NetProp;
 import Reader;
 import Color;
 import Interpolation;
 import Canvas;
+import Absolutes;
 
 enum class EntityNetProps : uint64_t {
     // byte 1
@@ -56,11 +57,11 @@ inline uint8_t operator&(const uint8_t lhs, const EntityNetProps rhs) {
     return lhs & static_cast<uint8_t>(rhs);
 }
 
-export struct Entity {
-    uint32_t id;
+export struct EntityData {
+    uint64_t id;
     uint64_t spawnTick;
 
-    explicit Entity(const uint32_t id, const uint64_t spawnTick) : id(id), spawnTick(spawnTick) {}
+    explicit EntityData(const uint64_t id, const uint64_t spawnTick) : id(id), spawnTick(spawnTick) {}
 
     // state byte 1
     NetPropArithmetic<float, EasingMode::Linear> x{ 0.0f };
@@ -73,7 +74,7 @@ export struct Entity {
 
     // state byte 2
     NetPropIntegral<uint64_t, EasingMode::Linear, IntegralFormat::ULeb128> maxHealth{ 0 };
-    NetPropIntegral<uint32_t, EasingMode::None, IntegralFormat::ULeb128> parent{ 0 };
+    NetPropIntegral<uint64_t, EasingMode::None, IntegralFormat::ULeb128> parent{ 0 };
     NetProp<uint8_t> bbType{ 1 };
     NetPropArithmetic<float, EasingMode::Linear> bbSide2{ 0.0f };
     NetProp<Color> color{ COLOR_FRIENDLY };
@@ -87,6 +88,8 @@ export struct Entity {
     NetProp<Color> scoreColor{ COLOR_WHITE };
     NetPropArithmetic<uint8_t, EasingMode::Linear> strokeWidth{ 3 };
     NetPropArithmetic<float, EasingMode::Linear> rotationOffset{ 0.0f };
+
+    Absolutes absolutes{};
 
     void decode(Reader &reader) {
         const auto state = reader.uleb128<uint64_t>();
@@ -113,23 +116,5 @@ export struct Entity {
         if (state & EntityNetProps::ScoreColor) scoreColor.decode(reader);
         if (state & EntityNetProps::StrokeWidth) strokeWidth.decode(reader);
         if (state & EntityNetProps::RotationOffset) rotationOffset.decode(reader);
-    }
-
-    uint64_t absolutesCachedFrame = 0;
-    float absoluteX = 0.0f;
-    float absoluteY = 0.0f;
-    float absoluteRotation = 0.0f;
-
-    [[nodiscard]] float getAnimationOffset(const double now) const {
-        if (bbType.getRenderValue() != 2) return 0.0f;
-
-        constexpr auto MAX_ANIMATION_UNSCALED = -(M_PI * 5); // todo figure out why this was chosen specifically?
-        constexpr auto MAX_DURATION = 10.0f * 1000.0f; // 10 seconds;
-        constexpr auto UNIT_SCALE = 42; // this is the equivalent bbSide2 of a barrel at default
-        const auto msDuration = MAX_DURATION / (255.0f / static_cast<float>(animationDuration.getRenderValue()));
-        const auto scale = bbSide2.getRenderValue();
-        const auto msPassed = static_cast<float>(msDuration / (now - animationDuration.currentTimeStamp));
-        const auto state = std::ranges::clamp(msPassed, 0.0f, 1.0f);
-        return static_cast<float>(MAX_ANIMATION_UNSCALED * (scale / UNIT_SCALE)) * state;
     }
 };

@@ -1,6 +1,6 @@
 export module GameRendering;
 
-import Entity;
+import EntityData;
 
 namespace GameRendering {
 #ifdef DEBUG

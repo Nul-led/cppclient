@@ -2,7 +2,7 @@ module;
 
 #include <cstdint>
 
-export module Arena;
+export module ArenaData;
 
 import Reader;
 import NetProp;
@@ -18,11 +18,11 @@ inline bool operator&(const unsigned long long lhs, ArenaNetProps rhs) {
     return lhs & static_cast<uint64_t>(rhs);
 }
 
-export struct Arena {
+export struct ArenaData {
     // todo easing?
-    NetPropIntegral<uint32_t, EasingMode::Linear, IntegralFormat::ULeb128> width{ 22300 };
-    NetPropIntegral<uint32_t, EasingMode::Linear, IntegralFormat::ULeb128> height{ 22300 };
-    NetPropIntegral<uint32_t, EasingMode::Linear, IntegralFormat::ULeb128> padding{ 200 };
+    NetPropIntegral<uint64_t, EasingMode::Linear, IntegralFormat::ULeb128> width{ 22300 };
+    NetPropIntegral<uint64_t, EasingMode::Linear, IntegralFormat::ULeb128> height{ 22300 };
+    NetPropIntegral<uint64_t, EasingMode::Linear, IntegralFormat::ULeb128> padding{ 200 };
 
     void decode(Reader &reader) {
         const auto state = reader.uleb128<uint64_t>();

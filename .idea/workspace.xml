@@ -33,19 +33,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc784ea3-4577-4ee5-9491-ca200c4bc113" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/core/GameServer.ixx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/Inputs.ixx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/rendering/GameRendering.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/AttributeData.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/CameraData.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/DeathData.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/UIData.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/rendering/Absolutes.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/UIColor.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/UIString.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/components/Statistics.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/components/Upgrades.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/widgets/Button.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/widgets/Progressbar.ixx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/widgets/Tooltip.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Viewport.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Viewport.ixx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/World.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/World.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Entity.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Entity.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/Clientbound.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/Clientbound.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/NetProp.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/NetProp.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/Writer.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/Writer.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rendering/Canvas.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/rendering/Canvas.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Arena.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ArenaData.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Attributes.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/components/Attributes.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Camera.ixx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Death.ixx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Entity.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/EntityData.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Indicators.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/IndicatorData.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Scoreboard.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ScoreboardData.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Tank.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/TankData.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rendering/GameRendering.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/rendering/GameRendering.ixx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/UI.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/UI.ixx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +100,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2ygEyXZ9nVqcvYXwN7N5xnvxnqG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -102,6 +119,8 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.advertisement.text.overridden&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -113,7 +132,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Nulled/Documents/cppclient/main.cpp&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;discord-project&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C/C++&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -123,11 +142,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="cppclient" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cppclient" TARGET_NAME="cppclient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cppclient" RUN_TARGET_NAME="cppclient">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -180,7 +194,17 @@
       <workItem from="1752148545086" duration="35000" />
       <workItem from="1752148617353" duration="9913000" />
       <workItem from="1752183000874" duration="9040000" />
-      <workItem from="1752242699256" duration="3908000" />
+      <workItem from="1752242699256" duration="8887000" />
+      <workItem from="1752292260415" duration="1000" />
+      <workItem from="1752339066990" duration="4242000" />
+      <workItem from="1752595615616" duration="1000" />
+      <workItem from="1752602936324" duration="35661000" />
+      <workItem from="1752747598247" duration="7641000" />
+      <workItem from="1752867798276" duration="5875000" />
+      <workItem from="1752933173872" duration="1000" />
+      <workItem from="1752940312428" duration="1832000" />
+      <workItem from="1752984656086" duration="11581000" />
+      <workItem from="1753030749610" duration="488000" />
     </task>
     <task id="LOCAL-00001" summary="initial testing">
       <option name="closed" value="true" />
@@ -198,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751070709108</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit">
+      <option name="closed" value="true" />
+      <created>1752247290985</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1752247290985</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

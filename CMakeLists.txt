@@ -16,16 +16,16 @@ set(SOURCES_MODULES
         src/net/NetProp.ixx
         src/net/Reader.ixx
         src/core/World.ixx
-        src/game/Arena.ixx
-        src/game/Camera.ixx
-        src/game/Tank.ixx
-        src/game/Entity.ixx
+        src/game/ArenaData.ixx
+        src/game/CameraData.ixx
+        src/game/TankData.ixx
+        src/game/EntityData.ixx
         src/core/GameServer.ixx
         src/net/Clientbound.ixx
-        src/game/Scoreboard.ixx
-        src/game/Attributes.ixx
-        src/game/Death.ixx
-        src/game/Indicators.ixx
+        src/game/ScoreboardData.ixx
+        src/game/AttributeData.ixx
+        src/game/DeathData.ixx
+        src/game/IndicatorData.ixx
         src/net/Serverbound.ixx
         src/net/Writer.ixx
         src/rendering/Canvas.ixx
@@ -33,6 +33,16 @@ set(SOURCES_MODULES
         src/rendering/Image.ixx
         src/rendering/GameRendering.ixx
         src/core/Inputs.ixx
+        src/ui/widgets/Progressbar.ixx
+        src/ui/widgets/Button.ixx
+        src/ui/components/Attributes.ixx
+        src/ui/UIColor.ixx
+        src/ui/UIString.ixx
+        src/ui/components/Upgrades.ixx
+        src/rendering/Absolutes.ixx
+        src/ui/components/Statistics.ixx
+        src/game/UIData.ixx
+        src/ui/widgets/Tooltip.ixx
 )
 
 ### todo remove
@@ -72,6 +82,7 @@ set(COMMON_COMPILER_OPTIONS
         -sEXPORTED_FUNCTIONS=_main
         -sEXPORTED_RUNTIME_FUNCTIONS=cwrap
         -Wno-deprecated
+        -Wno-reorder-init-list
 )
 
 set(COMMON_LINKER_OPTIONS
