@@ -216,7 +216,7 @@ namespace UI {
                     .id = CLAY_ID("UnallocatedAttributes"),
                 }) {
                     unallocatedPointsLabel = std::format("{}x", unallocated);
-                    CLAY_TEXT(toUIString(unallocatedPointsLabel), CLAY_TEXT_CONFIG({
+                    CLAY_TEXT(toClayString(unallocatedPointsLabel), CLAY_TEXT_CONFIG({
                         .fontSize = 28,
                         .textColor = COLOR_WHITE,
                     }));

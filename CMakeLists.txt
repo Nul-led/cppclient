@@ -43,6 +43,11 @@ set(SOURCES_MODULES
         src/ui/components/Statistics.ixx
         src/game/UIData.ixx
         src/ui/widgets/Tooltip.ixx
+        src/ui/components/Changelog.ixx
+        src/ui/components/NameInput.ixx
+        src/ui/views/Menu.ixx
+        src/ui/components/GameModes.ixx
+        src/net/Servers.ixx
 )
 
 ### todo remove

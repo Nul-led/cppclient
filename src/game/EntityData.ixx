@@ -68,7 +68,7 @@ export struct EntityData {
     NetPropArithmetic<float, EasingMode::Linear> y{ 0.0f };
     NetPropArithmetic<float, EasingMode::Linear> rotation{ 0.0f, M_PI * 2.0f };
     NetPropIntegral<uint64_t, EasingMode::Linear, IntegralFormat::ULeb128> health{ 0 }; // TODO might look nice with some out/inout easing
-    NetPropArithmetic<float, EasingMode::Linear> bbSide1{ 50.0f }; // TODO add easing?, also is this default statistically a good idea?
+    NetPropArithmetic<float, EasingMode::Linear> bbScale1{ 50.0f }; // TODO add easing?, also is this default statistically a good idea?
     NetPropIntegral<uint64_t, EasingMode::Linear, IntegralFormat::ULeb128> score{ 0 };
     NetProp<uint8_t> animationDuration{ 0 };
 
@@ -76,7 +76,7 @@ export struct EntityData {
     NetPropIntegral<uint64_t, EasingMode::Linear, IntegralFormat::ULeb128> maxHealth{ 0 };
     NetPropIntegral<uint64_t, EasingMode::None, IntegralFormat::ULeb128> parent{ 0 };
     NetProp<uint8_t> bbType{ 1 };
-    NetPropArithmetic<float, EasingMode::Linear> bbSide2{ 0.0f };
+    NetPropArithmetic<float, EasingMode::Linear> bbScale2{ 0.0f };
     NetProp<Color> color{ COLOR_FRIENDLY };
     NetPropIntegral<uint64_t, EasingMode::None, IntegralFormat::ULeb128> z{ 1 };
     NetProp<uint8_t> flags{ 0 };
@@ -98,14 +98,14 @@ export struct EntityData {
         if (state & EntityNetProps::Y) y.decode(reader);
         if (state & EntityNetProps::Rotation) rotation.decode(reader);
         if (state & EntityNetProps::Health) health.decode(reader);
-        if (state & EntityNetProps::BBSide1) bbSide1.decode(reader);
+        if (state & EntityNetProps::BBSide1) bbScale1.decode(reader);
         if (state & EntityNetProps::Score) score.decode(reader);
         if (state & EntityNetProps::AnimationDuration) animationDuration.decode(reader);
 
         if (state & EntityNetProps::MaxHealth) maxHealth.decode(reader);
         if (state & EntityNetProps::Parent) parent.decode(reader);
         if (state & EntityNetProps::BBType) bbType.decode(reader);
-        if (state & EntityNetProps::BBSide2) bbSide2.decode(reader);
+        if (state & EntityNetProps::BBSide2) bbScale2.decode(reader);
         if (state & EntityNetProps::Color) color.decode(reader);
         if (state & EntityNetProps::Z) z.decode(reader);
         if (state & EntityNetProps::Flags) flags.decode(reader);

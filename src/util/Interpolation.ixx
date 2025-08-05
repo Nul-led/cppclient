@@ -77,7 +77,7 @@ namespace EasingFunctions {
         return t < 0.5f ? std::pow(2.0f, 20.0f * t - 10.0f) / 2.0f
                         : (2.0f - std::pow(2.0f, -20.0f * t + 10.0f)) / 2.0f;
     }
-
+    
     // --- Circular ---
     inline double easeInCirc(const double t) { return 1.0f - std::sqrt(1.0f - std::pow(t, 2.0f)); }
     inline double easeOutCirc(const double t) { return std::sqrt(1.0f - std::pow(t - 1.0f, 2.0f)); }

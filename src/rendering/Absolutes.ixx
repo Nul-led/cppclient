@@ -11,8 +11,6 @@ export struct Absolutes {
     float absoluteY = 0.0f;
     float absoluteRotation = 0.0f;
 
-
-
     void calculateAbsolutes() {
         /*if (entity.absolutesCachedFrame == Viewport::frameCount) return;
         float offsetX = 0.0f, offsetY = 0.0f, offsetRotation = 0.0f, offsetRotationSin, offsetRotationCos;

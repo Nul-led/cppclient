@@ -36,10 +36,6 @@ export struct World {
 
     // Creates an entity with the next available ID.
     EntityData& createEntity() {
-        if (getEntityCount() >= UINT64_MAX) {
-            throw std::runtime_error("Cannot create new entity: maximum number of entities reached.");
-        }
-
         uint64_t entityId = 0;
         while (entities.contains(entityId)) ++entityId;
         return createEntityAt(entityId);

@@ -24,6 +24,8 @@ import Button;
 import Attributes;
 import Upgrades;
 import Statistics;
+import Changelog;
+import Menu;
 
 constexpr Clay_Color COLOR_LIGHT = {224, 215, 210, 255};
 constexpr Clay_Color COLOR_RED = {168, 66, 28, 255};
@@ -31,7 +33,7 @@ constexpr Clay_Color COLOR_ORANGE = {225, 138, 50, 255};
 
 export namespace UI {
     std::vector<std::string> fonts = { "Ubuntu" };
-    std::map<std::string, Image> images;
+    std::vector<Image> images;
     Context2d* ctx;
     Canvas2d* canvas;
 
@@ -125,7 +127,7 @@ export namespace UI {
                 case CLAY_RENDER_COMMAND_TYPE_IMAGE: {
                     /*
                     const auto [backgroundColor, cornerRadius, imageData] = command->renderData.image;
-                    static_cast<std::string>(imageData);
+                    static_cast<const char*>(imageData);
                     if (images.contains(imageData)) {
 
                     }
@@ -285,23 +287,12 @@ export namespace UI {
                     .width = CLAY_SIZING_GROW(),
                     .height = CLAY_SIZING_GROW(),
                 },
-                .padding = {
-                    .left = 100,
-                    .top = 100,
-                },
+                //.childAlignment = { CLAY_ALIGN_X_CENTER, CLAY_ALIGN_Y_CENTER },
                 .layoutDirection = CLAY_TOP_TO_BOTTOM
             },
             .backgroundColor = COLOR_LIGHT
         }) {
-
-            Statistics(
-                100,
-                45,
-                5,
-                1000000,
-                CLAY_STRING("test"),
-                0
-            );
+            MenuView();
 
         }
 
