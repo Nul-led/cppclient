@@ -48,7 +48,7 @@ export struct Absolutes {
         */
     }
 
-    [[nodiscard]] static float getAnimationOffset(const uint8_t bbType, const float bbSide2, const double now, const double animationTimeStamp, const uint8_t animationDuration) {
+    [[nodiscard]] static float getRecoilAnimationOffset(const uint8_t bbType, const float bbSide2, const double now, const double animationTimeStamp, const uint8_t animationDuration) {
         if (bbType != 2) return 0.0f;
 
         constexpr auto MAX_ANIMATION_UNSCALED = -(M_PI * 5); // todo figure out why this was chosen specifically?

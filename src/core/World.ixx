@@ -1,5 +1,6 @@
 module;
 
+#include <algorithm>
 #include <cstdint>
 #include <map>
 #include <cmath>
@@ -93,5 +94,25 @@ export struct World {
         for (auto &val: entities | std::views::values) {
             val.absolutes.calculateAbsolutes();
         }
+    }
+
+    std::vector<std::reference_wrapper<EntityData>> getEntityRefs() {
+        std::vector<std::reference_wrapper<EntityData>> result;
+
+        for (auto &val: entities | std::views::values) {
+            result.emplace_back(val);
+        }
+
+        return result;
+    }
+
+    std::vector<std::reference_wrapper<EntityData>> getSortedEntities() {
+        auto refs = getEntityRefs();
+
+        std::ranges::sort(refs, [](const auto &a, const auto &b) {
+            return a.get().z.getRenderValue() < b.get().z.getRenderValue();
+        });
+
+        return refs;
     }
 };

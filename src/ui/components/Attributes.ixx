@@ -39,6 +39,8 @@ namespace UI {
         CLAY_STRING("[ ]"),
     };
 
+    std::string unallocatedPointsLabel;
+
     void Bar(
         const size_t idx,
         const uint32_t current,
@@ -160,8 +162,6 @@ namespace UI {
             }));
         }
     }
-
-    std::string unallocatedPointsLabel;
 
     export void Attributes(
         const std::vector<Clay_String>& names,

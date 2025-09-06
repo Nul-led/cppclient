@@ -6,6 +6,8 @@ module;
 
 export module UIColor;
 
+import Color;
+
 namespace UI {
     export constexpr auto COLOR_BLACK = Clay_Color(0, 0, 0, 1);
     export constexpr auto COLOR_WHITE = Clay_Color(255, 255, 255, 1);
@@ -24,5 +26,9 @@ namespace UI {
         const auto b_blend = static_cast<uint8_t>(static_cast<float>(primary.b) * (1.0f - factor) + static_cast<float>(secondary.b) * factor);
         const auto a_blend = static_cast<uint8_t>(static_cast<float>(primary.a) * (1.0f - factor) + static_cast<float>(secondary.a) * factor);
         return Clay_Color(r_blend, g_blend, b_blend, a_blend);
+    }
+
+    export Clay_Color toUIColor(const Color &color) {
+        return Clay_Color(color.r, color.g, color.b, 1.0f);
     }
 }

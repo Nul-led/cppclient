@@ -48,6 +48,8 @@ set(SOURCES_MODULES
         src/ui/views/Menu.ixx
         src/ui/components/GameModes.ixx
         src/net/Servers.ixx
+        src/ui/components/Scoreboard.ixx
+        src/rendering/Extraction.ixx
 )
 
 ### todo remove

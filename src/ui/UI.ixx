@@ -26,10 +26,7 @@ import Upgrades;
 import Statistics;
 import Changelog;
 import Menu;
-
-constexpr Clay_Color COLOR_LIGHT = {224, 215, 210, 255};
-constexpr Clay_Color COLOR_RED = {168, 66, 28, 255};
-constexpr Clay_Color COLOR_ORANGE = {225, 138, 50, 255};
+import Scoreboard;
 
 export namespace UI {
     std::vector<std::string> fonts = { "Ubuntu" };
@@ -256,6 +253,13 @@ export namespace UI {
     const auto testChars = "test";
     float testFontLoadWidth = 0;
 
+    auto entries = std::vector<UIScoreboardEntry> {
+                    { std::string("test1"), std::string(""), Clay_Color(255, 0, 0, 1.0f), 1000 },
+                    { std::string("test2"), std::string(""), Clay_Color(0, 255, 0, 1.0f), 999 },
+                    { std::string("test3"), std::string(""), Clay_Color(0, 0, 255, 1.0f), 2000 },
+                    { std::string("test4"), std::string(""), Clay_Color(0, 255, 255, 1.0f), 1929 }
+    };
+
     void layout() {
         canvas->setSize(Viewport::screenWidth, Viewport::screenHeight);
 
@@ -287,12 +291,16 @@ export namespace UI {
                     .width = CLAY_SIZING_GROW(),
                     .height = CLAY_SIZING_GROW(),
                 },
-                //.childAlignment = { CLAY_ALIGN_X_CENTER, CLAY_ALIGN_Y_CENTER },
+                .childAlignment = { CLAY_ALIGN_X_CENTER, CLAY_ALIGN_Y_CENTER },
                 .layoutDirection = CLAY_TOP_TO_BOTTOM
-            },
-            .backgroundColor = COLOR_LIGHT
+            }
         }) {
-            MenuView();
+
+
+
+            Scoreboard(entries);
+
+            //MenuView();
 
         }
 

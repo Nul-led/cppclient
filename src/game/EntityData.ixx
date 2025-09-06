@@ -61,7 +61,7 @@ export struct EntityData {
     uint64_t id;
     uint64_t spawnTick;
 
-    explicit EntityData(const uint64_t id, const uint64_t spawnTick) : id(id), spawnTick(spawnTick) {}
+    Absolutes absolutes{};
 
     // state byte 1
     NetPropArithmetic<float, EasingMode::Linear> x{ 0.0f };
@@ -89,7 +89,15 @@ export struct EntityData {
     NetPropArithmetic<uint8_t, EasingMode::Linear> strokeWidth{ 3 };
     NetPropArithmetic<float, EasingMode::Linear> rotationOffset{ 0.0f };
 
-    Absolutes absolutes{};
+    explicit EntityData(const uint64_t id, const uint64_t spawnTick) : id(id), spawnTick(spawnTick) {}
+
+    void decodeSparce(Reader &reader) {
+
+    }
+
+    void decodeDense(Reader &reader) {
+
+    }
 
     void decode(Reader &reader) {
         const auto state = reader.uleb128<uint64_t>();
