@@ -262,7 +262,6 @@ export namespace UI {
 
     void layout() {
         canvas->setSize(Viewport::screenWidth, Viewport::screenHeight);
-
         {
             const auto width = measureText(Clay_StringSlice(4, testChars, testChars), CLAY_TEXT_CONFIG({
                 .fontId = 0,
@@ -298,9 +297,9 @@ export namespace UI {
 
 
 
-            Scoreboard(entries);
+            //Scoreboard(entries);
 
-            //MenuView();
+            MenuView();
 
         }
 

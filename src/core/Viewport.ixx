@@ -15,6 +15,7 @@ export namespace Viewport {
     double deltaTime = 1000.0f / 60.0f;
     double now = 0.0f;
     double renderTime = 0.0f;
+    double devicePixelRatio = 1.0f;
 
     Canvas2d* canvas;
     Context2d* ctx;
@@ -33,6 +34,8 @@ export namespace Viewport {
     void updateScreen() {
         screenWidth = emscripten::val::global("innerWidth").as<int>() ;
         screenHeight = emscripten::val::global("innerHeight").as<int>();
+        devicePixelRatio = emscripten::val::global("devicePixelRatio").as<double>();
+
         canvas->setSize(screenWidth, screenHeight);
         canvas->setStyleSize(screenWidth, screenHeight);
     }

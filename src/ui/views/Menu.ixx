@@ -1,11 +1,15 @@
 module;
 
+#include <vector>
+
 #include "clay.h"
 
 export module Menu;
 
 import Changelog;
 import UIColor;
+import GameModes;
+import Servers;
 
 namespace UI {
     export void MenuView() {
@@ -31,7 +35,10 @@ namespace UI {
                     .childAlignment = { .x = CLAY_ALIGN_X_CENTER }
                 }
             }) {
-                // GameModes();
+
+                auto gamemodes = std::vector<ServerGameOptions>();
+
+                GameModes(gamemodes, GameModeIds::FFA);
                 CLAY({
                     .layout = {
                         .sizing = { .width = CLAY_SIZING_FIXED(400), .height = CLAY_SIZING_FIXED(100) },

@@ -8,7 +8,7 @@
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/LiveTemplatesHousekeeping/HotspotSessionHintIsShown/@EntryValue" value="true" type="bool" />
-    <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
+    <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppCodeGeneration" type="string" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
   </component>
   <component name="CMakePresetLoader">{
@@ -27,24 +27,22 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_TOOLCHAIN_FILE=&quot;C:\Users\Nulled\Documents\emsdk\upstream\emscripten\cmake\Modules\Platform\Emscripten.cmake&quot;" />
-      <configuration PROFILE_NAME="Release" ENABLED="true" CONFIG_NAME="Release" GENERATION_OPTIONS="-DCMAKE_TOOLCHAIN_FILE=&quot;C:\Users\Nulled\Documents\emsdk\upstream\emscripten\cmake\Modules\Platform\Emscripten.cmake&quot;" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_TOOLCHAIN_FILE=&quot;/Users/niels.dewendt/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake&quot;" />
+      <configuration PROFILE_NAME="Release" ENABLED="true" CONFIG_NAME="Release" GENERATION_OPTIONS="-DCMAKE_TOOLCHAIN_FILE=&quot;/Users/niels.dewendt/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake&quot;" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc784ea3-4577-4ee5-9491-ca200c4bc113" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/rendering/Extraction.ixx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/components/Scoreboard.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/World.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/World.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/EntityData.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/EntityData.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rendering/Absolutes.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/rendering/Absolutes.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Viewport.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Viewport.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/Servers.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/Servers.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rendering/Canvas.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/rendering/Canvas.ixx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rendering/GameRendering.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/rendering/GameRendering.ixx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/UI.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/UI.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/UIColor.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/UIColor.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/UIString.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/UIString.ixx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/components/Attributes.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/components/Attributes.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/components/GameModes.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/components/GameModes.ixx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/views/Menu.ixx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/views/Menu.ixx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,12 +65,11 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Nul-led/cppclient.git&quot;,
-    &quot;accountId&quot;: &quot;34508a2e-af75-4818-8255-9d7f6bf1ede1&quot;
+    &quot;accountId&quot;: &quot;5545a8c1-d058-4b09-b22a-33d13e8fd1e4&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/niels.dewendt/CLionProjects/cppclient/src/ui/components/GameModes.ixx" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -102,6 +99,7 @@
     &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
@@ -112,6 +110,7 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Nulled/Documents/cppclient&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -119,7 +118,9 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Nulled/Documents/cppclient/main.cpp&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTThemeTableConfigurable&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;liveEdit&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -129,11 +130,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="cppclient" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cppclient" TARGET_NAME="cppclient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cppclient" RUN_TARGET_NAME="cppclient">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="cppclient" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cppclient" TARGET_NAME="cppclient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cppclient" RUN_TARGET_NAME="cppclient">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -221,6 +217,15 @@
       <workItem from="1755263584757" duration="841000" />
       <workItem from="1756142441771" duration="370000" />
       <workItem from="1757149997306" duration="2035000" />
+      <workItem from="1759842715985" duration="548000" />
+      <workItem from="1759843275310" duration="33000" />
+      <workItem from="1759843314541" duration="3779000" />
+      <workItem from="1759996050319" duration="1167000" />
+      <workItem from="1759997345062" duration="2755000" />
+      <workItem from="1760007020562" duration="2652000" />
+      <workItem from="1760082009219" duration="769000" />
+      <workItem from="1760082789828" duration="1628000" />
+      <workItem from="1760599418698" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="initial testing">
       <option name="closed" value="true" />
@@ -304,17 +309,6 @@
     <MESSAGE value="some ui work" />
     <MESSAGE value="commit" />
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/core/Viewport.ixx</url>
-          <line>2</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

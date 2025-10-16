@@ -15,7 +15,7 @@ export struct Canvas2d {
         return emscripten::val::global("document").call<emscripten::val>("getElementById", canvasId);
     }
 
-    static emscripten::val getOffScreenSurface(const uint32_t initialWidth, const uint32_t initialHeight) {
+    static emscripten::val getOffScreenSurface(const double initialWidth, const double initialHeight) {
         return emscripten::val::global("OffscreenCanvas").new_(emscripten::val(initialWidth), emscripten::val(initialHeight));
     }
 
@@ -25,15 +25,15 @@ export struct Canvas2d {
 
     explicit Canvas2d(emscripten::val surface) :  surface(std::move(surface)) {}
 
-    [[nodiscard]] uint32_t getWidth() const {
-        return surface["width"].as<uint32_t>();
+    [[nodiscard]] double getWidth() const {
+        return surface["width"].as<double>();
     }
 
-    [[nodiscard]] uint32_t getHeight() const {
-        return surface["height"].as<uint32_t>();
+    [[nodiscard]] double getHeight() const {
+        return surface["height"].as<double>();
     }
 
-    void setSize(const uint32_t width, const uint32_t height) {
+    void setSize(const double width, const double height) {
         surface.set("width", width);
         surface.set("height", height);
     }
@@ -396,6 +396,12 @@ export struct Context2d {
     void translate(const double x, const double y) const {
         EM_ASM(({
             Emval.toValue($0).translate($1, $2);
+        }), ctx.as_handle(), x, y);
+    }
+
+    void scale(const double x, const double y) const {
+        EM_ASM(({
+            Emval.toValue($0).scale($1, $2);
         }), ctx.as_handle(), x, y);
     }
 

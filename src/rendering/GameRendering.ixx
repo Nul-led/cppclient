@@ -9,11 +9,7 @@ export module GameRendering;
 import Canvas;
 import Color;
 
-struct EntityRenderData {
-
-
-
-};
+struct EntityRenderData {};
 
 namespace GameRendering {
 #ifdef DEBUG
@@ -22,26 +18,23 @@ namespace GameRendering {
 #endif
 
 
-
     bool enableRawHealthValues = false;
     bool enableRenderBackgroundColor = true;
     bool enableRenderGrid = true;
     bool enableRenderBorders = true;
 
-    export void renderBackground() {
-
-    }
+    export void renderBackground() {}
 
     export void renderEntity(
-        const Context2d &ctx,
+        const Context2d& ctx,
         const float x,
         const float y,
         const float rotation,
         const uint8_t bbType,
         const float bbScale1,
         const float bbScale2,
-        const Color &color,
-        const Color &strokeColor,
+        const Color& color,
+        const Color& strokeColor,
         const float strokeWidth,
         const uint8_t opacity,
         const bool isTrapezoid,
@@ -62,36 +55,40 @@ namespace GameRendering {
         ctx.beginPath();
 
         switch (bbType) {
-            case 0:
-                break;
-            case 1:
-                ctx.arc(0, 0, bbScale1, 0, M_PI * 2.0f, false);
-                break;
-            case 2:
-                const auto hw = bbScale1 / 2.0f;
-                const auto hh = bbScale2 / 2.0f;
-                if (isTrapezoid) {
-                    ctx.moveTo(-hw, -hh);
-                    ctx.lineTo(hw, -hh * 1.75f);
-                    ctx.lineTo(hw, hh * 1.75f);
-                    ctx.lineTo(-hw, hh);
-                } else {
-                    ctx.rect(-hw, -hh, bbScale1, bbScale2);
-                }
-                break;
-            default:
-                const auto vertices = bbType * (isStar ? 2 : 1);
-                for (int i = 0; i < vertices; ++i) {
-                    auto offsetRotation = M_PI * 2.0f * i / vertices;
-                    if (vertices == 4) offsetRotation += M_PI_4;
-                    const auto heightFactor = (isStar && (i % 2) == 0) ? 0.4f : 1.0f;
-                    const auto vx = cos(offsetRotation) * bbScale1 * heightFactor;
-                    const auto vy = sin(offsetRotation) * bbScale1 * heightFactor;
-                    if (i == 0) ctx.moveTo(vx, vy);
-                    else ctx.lineTo(vx, vy);
-                }
+        case 0: {
+            break;
         }
-
+        case 1: {
+            ctx.arc(0, 0, bbScale1, 0, M_PI * 2.0f, false);
+            break;
+        }
+        case 2: {
+            const auto hw = bbScale1 / 2.0f;
+            const auto hh = bbScale2 / 2.0f;
+            if (isTrapezoid) {
+                ctx.moveTo(-hw, -hh);
+                ctx.lineTo(hw, -hh * 1.75f);
+                ctx.lineTo(hw, hh * 1.75f);
+                ctx.lineTo(-hw, hh);
+            }
+            else {
+                ctx.rect(-hw, -hh, bbScale1, bbScale2);
+            }
+            break;
+        }
+        default: {
+            const auto vertices = bbType * (isStar ? 2 : 1);
+            for (int i = 0; i < vertices; ++i) {
+                auto offsetRotation = M_PI * 2.0f * i / vertices;
+                if (vertices == 4) offsetRotation += M_PI_4;
+                const auto heightFactor = (isStar && (i % 2) == 0) ? 0.4f : 1.0f;
+                const auto vx = cos(offsetRotation) * bbScale1 * heightFactor;
+                const auto vy = sin(offsetRotation) * bbScale1 * heightFactor;
+                if (i == 0) ctx.moveTo(vx, vy);
+                else ctx.lineTo(vx, vy);
+            }
+        }
+        }
         ctx.closePath();
 
         ctx.fill();
@@ -101,7 +98,7 @@ namespace GameRendering {
     }
 
     export void renderHealth(
-        const Context2d &ctx,
+        const Context2d& ctx,
         float x,
         float y,
         uint64_t value,
@@ -111,22 +108,18 @@ namespace GameRendering {
     }
 
     export void renderScore(
-        const Context2d &ctx,
+        const Context2d& ctx,
         float x,
         float y,
         uint64_t value,
-        const Color &color
-    ) {
-
-    }
+        const Color& color
+    ) {}
 
     export void renderName(
-        const Context2d &ctx,
+        const Context2d& ctx,
         float x,
         float y,
-        const std::string &value,
-        const Color &color
-    ) {
-
-    }
+        const std::string& value,
+        const Color& color
+    ) {}
 }

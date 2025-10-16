@@ -4,6 +4,8 @@ module;
 
 export module Servers;
 
+import Color;
+
 export enum class GameModeIds : uint64_t {
     FFA = 0,
     Maze,
@@ -11,6 +13,7 @@ export enum class GameModeIds : uint64_t {
 };
 
 export struct ServerGameOptions {
-    GameModeIds mode;
+    GameModeIds id;
     std::string name;
+    Color color;
 };

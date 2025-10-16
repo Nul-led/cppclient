@@ -90,6 +90,7 @@ set(COMMON_COMPILER_OPTIONS
         -sEXPORTED_RUNTIME_FUNCTIONS=cwrap
         -Wno-deprecated
         -Wno-reorder-init-list
+        -g
 )
 
 set(COMMON_LINKER_OPTIONS
@@ -115,6 +116,7 @@ elseif(CMAKE_BUILD_TYPE EQUAL "Release")
     target_compile_definitions(${PROJECT_NAME} PRIVATE DEBUG=1)
     target_link_options(${PROJECT_NAME}
             PRIVATE
+            -g
             -std=c++23
             -lembind
             -sOFFSCREENCANVAS_SUPPORT=1
